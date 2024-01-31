@@ -1,0 +1,174 @@
+{
+    "connection":{
+        "url":"jdbc:postgresql://localhost:5432/scaffolding",
+        "user":"postgres",
+        "password":"postgres",
+        "port":"5432"
+    },
+    "java": {
+        "template": {
+            "attribute": "private <type> <attributeName>;",
+            "getter_setter": "\npublic <type> get<caps_attributeName>() {\treturn this.<attributeName>;}\n  \npublic void set<caps_attributeName>(<type> <attributeName>){\tthis.<attributeName> = <attributeName>;} \n",
+            "design": "package <folder>; <imports> public class <classname> { <attributes> <getters_setters> }"
+        },
+        "mysql": {
+            "int": {
+                "type": "int",
+                "import": ""
+            },
+            "decimal": {
+                "type": "double",
+                "import": ""
+            },
+            "float": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "String",
+                "import": ""
+            },
+            "text": {
+                "type": "String",
+                "import": ""
+            },
+            "date": {
+                "type": "LocalDate",
+                "import": "import java.time.LocalDate;"
+            },
+            "datetime": {
+                "type": "LocalDateTime",
+                "import": "import java.time.LocalDateTime;"
+            },
+            "bit": {
+                "type": "int",
+                "import": ""
+            }
+        },
+        "postgres": {
+            "serial": {
+                "type": "int",
+                "import": ""
+            },
+            "int4": {
+                "type": "int",
+                "import": ""
+            },
+            "float8": {
+                "type": "double",
+                "import": ""
+            },
+            "numeric": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "String",
+                "import": ""
+            },
+            "text": {
+                "type": "String",
+                "import": ""
+            },
+            "date": {
+                "type": "LocalDate",
+                "import": "import java.time.LocalDate;"
+            },
+            "timestamp": {
+                "type": "LocalDateTime",
+                "import": "import java.time.LocalDateTime;"
+            },
+            "bool": {
+                "type": "boolean",
+                "import": ""
+            },
+            "interval": {
+                "type": "Duration",
+                "import": "import java.time.Duration;"
+            }
+        }
+    },
+    "dotnet": {
+        "template": {
+            "attribute": "private <type> <attributeName>;",
+            "getter_setter": "public <type>  <caps_attributeName>{get { return <attributeName>; }set { <attributeName> = value; }}",
+            "design": "<imports> namespace <folder>{ public class <classname> { <attributes> <getters_setters> } }"
+        },
+        "mysql": {
+            "int": {
+                "type": "int",
+                "import": ""
+            },
+            "decimal": {
+                "type": "double",
+                "import": ""
+            },
+            "float": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "string",
+                "import": ""
+            },
+            "text": {
+                "type": "string",
+                "import": ""
+            },
+            "date": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "datetime": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "bit": {
+                "type": "int",
+                "import": ""
+            }
+        },
+        "postgres": {
+            "serial": {
+                "type": "int",
+                "import": ""
+            },
+            "int4": {
+                "type": "int",
+                "import": ""
+            },
+            "float8": {
+                "type": "double",
+                "import": ""
+            },
+            "numeric": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "string",
+                "import": ""
+            },
+            "text": {
+                "type": "string",
+                "import": ""
+            },
+            "date": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "timestamp": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "bool": {
+                "type": "bool",
+                "import": ""
+            },
+            "interval": {
+                "type": "TimeSpan ",
+                "import": "using System.TimeSpan;"
+            }
+        }
+    }
+}

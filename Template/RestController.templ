@@ -1,0 +1,33 @@
+{jvs}<package> #nom_package;
+
+<import> #nom_import;
+
+{dts}<package> #nom_package {
+<restcontroller_annotation>
+public class #nom_classeController {
+
+    private final #nom_classeService #nom_parameterService;
+
+
+    <post_annotation>
+    public void insert(<parameter_annotation> #nom_classe #nom_parameter){
+        #nom_parameterService.create(#nom_parameter);
+    }
+
+    <get_annotation>
+    public List<#nom_classe> retrieve(){
+        return #nom_parameterService.retrieve();
+    }
+
+    <put_annotation>
+    public void update(<parameter_annotation> #nom_classe #nom_parameter){
+        #nom_parameterService.update(#nom_parameter);
+    }
+
+    <delete_annotation>
+    public void delete(<parameter_annotation> #nom_classe #nom_parameter){
+        #nom_parameterService.delete(#nom_parameter);
+    }
+
+}
+{dts}}

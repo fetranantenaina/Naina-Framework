@@ -1,0 +1,99 @@
+<%@page import="<package>.Modele.#nom_classe" %>
+<%@page import="java.util.List" %>
+
+<%
+    List<#nom_classe> #nom_parameters = (List<#nom_classe>) request.getAttribute("#nom_classes");
+%>
+<div class="position-fixed row d-block col-8 offset-2 mt-4">
+    <div class="row">
+        <h1 class="col-5">Liste des #nom_parameters</h1>
+        <button class="btn btn-success col-2 offset-5" onclick="showCreation()">Ajouter</button>
+    </div>
+    <div class="card row mt-3">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <td>{Attributs}</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(#nom_classe #nom_parameter : #nom_parameters) { %>
+                    <tr>
+                        <td>{PrintDataAttributs}</td>
+                        <td><button class="btn btn-primary" onclick="showModif(event)" value="<% out.print(#nom_parameter.get#maj_nom_PK()); %>">Modifier</button></td>
+                        <td><a class="btn btn-danger" href="/#nom_parameters/delete?id=<% out.print(#nom_parameter.get#maj_nom_PK()); %>">Supprimer</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-4 offset-4 border p-3 mt-3" id="creation">
+    <div class="row">
+        <h1 class="col-10 titleCreation">Ajout:</h1>
+        <button class="col-1" onclick="showCreation()">X</button>
+    </div>
+    <form action="/#nom_parameters/post" class="col-8 offset-2" method="post">
+        <div>{FormAttributs}</div>
+        <div class="my-2 row">
+            <button class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<script>
+    var creation = $("#creation");
+    var creationShow = true;
+    $(document).ready(()=>{
+        creation.hide();
+        creationShow = false;
+    });
+
+    function showModif(event){
+        creation.show();
+        creationShow = true;
+        $(".titleCreation").text("Modification:");
+        $(".buttonAjouter").text("Modifier");
+        $.ajax({
+            url: '#nom_parameters/getById?id='+event.target.value,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+                $("#creation input").each((index,element) => {
+                    element.value = data[element.id];
+                    if(element.id == "#nom_PK") {
+                        element.type = 'text';
+                        element.setAttribute("readonly",true);
+                    }
+                });
+            }
+        });
+    }
+
+
+    function showCreation(){
+        $(".titleCreation").text("Ajout:");
+        $(".buttonAjouter").text("Ajouter");
+        $("#creation input").each((index,element) => {
+            element.value = "";
+            if(element.id == "#nom_PK") {
+                element.type = 'hidden';
+                element.setAttribute("value",0);
+            }
+        });
+        if(creationShow){
+            creation.hide();
+            creationShow = false;
+        }else{
+            creation.show();
+            creationShow = true;
+        }
+    }
+
+</script>

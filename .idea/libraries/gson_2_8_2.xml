@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="gson-2.8.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../JAR/gson-2.8.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../JAR/postgresql-42.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

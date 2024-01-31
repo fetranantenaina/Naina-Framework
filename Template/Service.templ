@@ -1,0 +1,48 @@
+<package> #nom_package;
+
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+@Service
+public class #nom_classeService {
+    private final #nom_classeRepository #nom_parameterRepository;
+
+    @Autowired
+    public #nom_classeService(#nom_classeRepository #nom_parameterRepository) {
+        this.#nom_parameterRepository = #nom_parameterRepository;
+    }
+
+//Create
+    @Transactional
+    public #nom_classe create(#nom_classe #nom_parameter){
+        return #nom_parameterRepository.save(#nom_parameter);
+    }
+
+//Retrieve
+    public List<#nom_classe> retrieve(){
+        return (List<#nom_classe>) #nom_parameterRepository.findAll();
+    }
+
+//Update
+    @Transactional
+    public #nom_classe update(#nom_classe #nom_parameter){
+        return #nom_parameterRepository.save(#nom_parameter);
+    }
+
+//Delete
+    @Transactional
+    public void delete(#nom_classe #nom_parameter){
+        #nom_parameterRepository.delete(#nom_parameter);
+    }
+
+//By id
+    public #nom_classe byId(#type_id id){
+        return #nom_parameterRepository.findById(id).get();
+    }
+
+}
