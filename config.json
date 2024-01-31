@@ -1,0 +1,261 @@
+{
+    "config": {
+        "target": "F:\\Naina\\src\\main",
+        "targetView": "F:\\Naina\\src\\main\\webapp\\WEB-INF\\jsp",
+        "source":"com.carsale.back.API"
+    },
+    "connection":{
+        "url":"jdbc:postgresql://localhost:5432/baovola",
+        "user":"postgres",
+        "password":"dragon163",
+        "port":"5432"
+    },
+    "choice": {
+        "class": {
+            "file": "Class.templ",
+            "filename": ""
+        },
+        "entity": {
+            "file": "Entity.templ",
+            "filename": ""
+        },
+        "repository": {
+            "file": "Repository.templ",
+            "filename": "Repository"
+        },
+        "service": {
+            "file": "Service.templ",
+            "filename": "Service"
+        },
+        "controller": {
+            "file": "Controller.templ",
+            "filename": "Controller"
+        },
+        "restcontroller": {
+            "file": "RestController.templ",
+            "filename": "Controller"
+        },
+        "view": {
+            "file": "ViewJsp.templ",
+            "filename": ""
+        }
+    },
+    "java": {
+        "template": {
+            "package": "package",
+            "import": "import",
+            "importController": [
+                "import com.google.gson.Gson;",
+                "import jakarta.servlet.http.HttpServletResponse;",
+                "import org.springframework.stereotype.Controller;",
+                "import org.springframework.ui.Model;",
+                "import org.springframework.web.bind.annotation.*;",
+                "import org.springframework.web.servlet.view.RedirectView;",
+                "import java.io.IOException;",
+                "import java.io.PrintWriter;"
+            ],
+            "importRestController": [
+                "import org.springframework.web.bind.annotation.*;",
+                "import java.util.List;"
+            ],
+            "controller_annotation" : [
+                "@Controller",
+                "@RequestMapping(\"/#nom_parameters\")"
+            ],
+            "restcontroller_annotation" : [
+                "@RestController",
+                "@RequestMapping(\"/#nom_parameters\")"
+            ],
+            "class_annotation" : [
+                "import jakarta.persistence.*;\n",
+                "@Entity",
+                "@Table(name = \"#nom_parameter\")"
+            ],
+            "post_annotation": "@PostMapping",
+            "get_annotation": "@GetMapping",
+            "put_annotation": "@PutMapping",
+            "delete_annotation": "@DeleteMapping",
+            "parameter_annotation": "@RequestBody"
+        },
+        "mysql": {
+            "int": {
+                "type": "int",
+                "import": ""
+            },
+            "decimal": {
+                "type": "double",
+                "import": ""
+            },
+            "float": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "String",
+                "import": ""
+            },
+            "text": {
+                "type": "String",
+                "import": ""
+            },
+            "date": {
+                "type": "Date",
+                "import": "import java.util.Date;"
+            },
+            "datetime": {
+                "type": "LocalDateTime",
+                "import": "import java.time.LocalDateTime;"
+            },
+            "bit": {
+                "type": "int",
+                "import": ""
+            }
+        },
+        "postgres": {
+            "serial": {
+                "type": "int",
+                "import": ""
+            },
+            "int4": {
+                "type": "int",
+                "import": ""
+            },
+            "float8": {
+                "type": "double",
+                "import": ""
+            },
+            "numeric": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "String",
+                "import": ""
+            },
+            "text": {
+                "type": "String",
+                "import": ""
+            },
+            "date": {
+                "type": "Date",
+                "import": "import java.util.Date;"
+            },
+            "timestamp": {
+                "type": "Date",
+                "import": "import java.util.Date;\nimport org.springframework.format.annotation.DateTimeFormat;"
+            },
+            "bool": {
+                "type": "boolean",
+                "import": ""
+            },
+            "interval": {
+                "type": "Duration",
+                "import": "import java.time.Duration;"
+            }
+        }
+    },
+    "dotnet": {
+        "template": {
+            "package": "namespace",
+            "import": "using",
+            "importController": [
+                "using Microsoft.AspNetCore.Mvc;"
+            ],
+            "importRestController": [
+                "using Microsoft.AspNetCore.Mvc;"
+            ],
+            "controller_annotation" : [
+                "[ApiController]",
+                "[Route(\"#nom_parameter\")]"
+            ],
+            "restcontroller_annotation" : [
+                "[ApiController]",
+                "[Route(\"#nom_parameter\")]"
+            ],
+            "class_annotation" : [
+                ""
+            ],
+            "post_annotation": "[HttpPost]",
+            "get_annotation": "[HttpGet]",
+            "put_annotation": "[HttpPut]",
+            "delete_annotation": "[HttpDelete]",
+            "parameter_annotation": "[RequsetBody]"
+        },
+        "mysql": {
+            "int": {
+                "type": "int",
+                "import": ""
+            },
+            "decimal": {
+                "type": "double",
+                "import": ""
+            },
+            "float": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "string",
+                "import": ""
+            },
+            "text": {
+                "type": "string",
+                "import": ""
+            },
+            "date": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "datetime": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "bit": {
+                "type": "int",
+                "import": ""
+            }
+        },
+        "postgres": {
+            "serial": {
+                "type": "int",
+                "import": ""
+            },
+            "int4": {
+                "type": "int",
+                "import": ""
+            },
+            "float8": {
+                "type": "double",
+                "import": ""
+            },
+            "numeric": {
+                "type": "double",
+                "import": ""
+            },
+            "varchar": {
+                "type": "string",
+                "import": ""
+            },
+            "text": {
+                "type": "string",
+                "import": ""
+            },
+            "date": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "timestamp": {
+                "type": "DateTime",
+                "import": "using System.DateTime;"
+            },
+            "bool": {
+                "type": "bool",
+                "import": ""
+            },
+            "interval": {
+                "type": "TimeSpan",
+                "import": "using System.TimeSpan;"
+            }
+        }
+    }
+}
